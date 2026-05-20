@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [loading, setLoading] = useState(true);
 
-  const apiBase = window.location.hostname === 'localhost' ? 'http://localhost:5050' : '';
+  const apiBase = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.port === '5173') ? 'http://localhost:5050' : '';
 
   useEffect(() => {
     const fetchUser = async () => {
